@@ -1,0 +1,43 @@
+{
+  "name": "buildtool",
+  "version": "1.0.0",
+  "description": "NPM as a BuildTool",
+  "dependencies": {},
+  "devDependencies": {
+    "clean-css": "^4.0.0",
+    "http-server": "^0.9.0",
+    "jshint": "^2.9.4",
+    "mocha": "^3.2.0",
+    "uglify-js": "^2.7.5",
+    "watch": "^1.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devendrapratap/buildtool.git"
+  },
+  "bugs": {
+    "url": "https://github.com/devendrapratap/buildtool/issues"
+  },
+  "homepage": "https://github.com/devendrapratap/buildtool#readme",
+  "scripts": {
+    "info": "echo 'npm as a build tool'",
+    "lint": "echo '=> linting' && jshint assets/scripts/*.js",
+    "test": "echo '=> testing' && mocha test/",
+    "minify:js": "echo '=> minify:js' && uglifyjs assets/scripts/main.js -o dist/public/js/jquery.min.js",
+    "minify:css": "echo '=> minify:css' && cleancss assets/css/main.css -o dist/public/css/main.min.css",
+    "build": "echo '=> building' && npm run test -s && npm run minify:js -s && npm run minify:css -s",
+    "server": "http-server dist/public/",
+    "pretest": "npm run lint -s"
+  },
+  "author": "Devendra Pratap Singh",
+  "license": "ISC",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "buildtool",
+    "npm",
+    "build",
+    "tool"
+  ]
+}
